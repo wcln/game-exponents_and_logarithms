@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WCLN</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://bclearningnetwork.com/lib/bootstrap/bootstrap.min.css">
+	<script src="https://bclearningnetwork.com/lib/jquery/jquery-3.2.1.min.js"></script>
+	<script src="https://bclearningnetwork.com/lib/bootstrap/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/interactjs@1.3/dist/interact.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/style.css"/>
+	<link rel="shortcut icon" href="images/favicon.ico"/>
+	<script type="text/javascript" src="exponents_and_logarithms.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h3>Instructions: </h3>
+				<p>Drag each number from the equation on the left to the appropriate position on the right.</p>
+				<img src="images/logo.png"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12" id="equations">
+
+					<div id="b" class="drag-drop">
+					</div>
+
+				<div id="equation-2">
+					<div id="b-dropzone" class="dropzone">
+
+					</div>
+				</div>
+			</div>
+		</div>
+    <div class="row">
+      <div class="col-xs-12" id="footer-bar">
+        <button title="Sort all items before clicking 'Check'." disabled onclick="check()" id="check-button">Check</button>
+        <button title="Reset all items back to the middle." onclick="reset()" id="reset-button">Reset</button>
+      </div>
+    </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+
+/* All. */
+* {
+  font-family: "Century Gothic", Arial;
+}
+
+/* Title. */
+div#header-bar h1 {
+  font-weight: bold;
+}
+
+
+/* Draggable divs. */
+div.draggable {
+  margin: 10px;
+  border: 1px solid black;
+  box-shadow: 2px 5px #a0a0a0;
+  cursor: pointer; /* IE */
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+/* Header bar. */
+div#header-bar {
+  text-align: center;
+}
+
+/* Logo image. */
+div img {
+  height: 35px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+/* Footer bar. */
+div#footer-bar {
+  text-align: right;
+  margin-top: 1em;
+}
+
+/* Footer bar buttons */
+.container button {
+  margin: .4em .2em;
+  border: none;
+  color: white;
+  padding: 12px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Check button in footer bar. */
+button#check-button {
+  background-color: #1f9134;
+}
+
+/* Check button hover. */
+button#check-button:hover {
+  background-color: #126020;
+}
+
+/* Reset button in footer bar. */
+button#reset-button {
+  background-color: #616161;
+}
+
+/* Reset button hover. */
+button#reset-button:hover {
+  background-color: #a0a0a0;
+}
+
+/* Restart button. */
+button#restart-button {
+  background-color: #168ac9;
+}
+
+/* Restart button hover. */
+button#restart-button:hover {
+  background-color: #0d4b6d;
+}
+
+/* The result div which is shown after checking answers. */
+div#result {
+  display: none;
+}
+
+/* The main container. */
+div.container {
+  border: 2px solid black;
+  max-width: 830px;
+}
+
+div#equations {
+  font-size: 50px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div#equations > div {
+  display: inline-block;
+}
+
+div#equation-1 {
+  border: 1px solid blue;
+}
+
+div#equation-2 {
+  float: right;
+  border: 1px solid red;
+}
+
+div#b-dropzone {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+div#b {
+  height: 20px;
+  width: 20px;
+  background-color: blue;
+}
+
+.dropzone {
+  background-color: #ccc;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+
+.drag-drop {
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.drag-drop.can-drop {
+  color: #000;
+  background-color: #4e4;
+}
