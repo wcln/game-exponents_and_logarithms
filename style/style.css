@@ -12,9 +12,6 @@ div#header-bar h1 {
 
 /* Draggable divs. */
 div.draggable {
-  margin: 10px;
-  border: 1px solid black;
-  box-shadow: 2px 5px #a0a0a0;
   cursor: pointer; /* IE */
   cursor: -webkit-grab;
   cursor: grab;
@@ -110,48 +107,49 @@ div#equations > div {
 }
 
 div#equation-1 {
-  border: 1px solid blue;
 }
 
 div#equation-2 {
   float: right;
-  border: 1px solid red;
 }
 
-div#b-dropzone {
-  height: 100px;
-  width: 100px;
-  border: 1px solid black;
+
+ .box {
+  height: 90px;
+  width: 90px;
+  background-color: black;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  cursor: grab;
 }
 
-div#b {
-  height: 20px;
-  width: 20px;
-  background-color: blue;
+.held {
+  border: solid 10px black;
+  background-color: black;
 }
 
-.dropzone {
-  background-color: #ccc;
-  padding: 10px;
-  transition: background-color 0.3s;
-}
-
-.drop-active {
-  border-color: #aaa;
-}
-
-.drop-target {
-  background-color: #29e;
-  border-color: #fff;
-  border-style: solid;
-}
-
-.drag-drop {
+.holder {
+  height: 110px;
+  width: 110px;
+  margin: 10px;
+  border: solid 5px black;
+  background-color: white;
   display: inline-block;
-  transition: background-color 0.3s;
+  vertical-align: top;
 }
 
-.drag-drop.can-drop {
-  color: #000;
-  background-color: #4e4;
+.hovered {
+  border: dotted 5px black !important;
 }
+
+.invisible {
+  display: none;
+}
+
+/* #container {
+  margin: auto;
+  top: 100px;
+  width: 400px;
+  position: relative;
+} */
