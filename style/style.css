@@ -94,62 +94,111 @@ div#result {
 div.container {
   border: 2px solid black;
   max-width: 830px;
-}
-
-div#equations {
-  font-size: 50px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  min-width: 660px;
 }
 
 div#equations > div {
   display: inline-block;
 }
 
-div#equation-1 {
+
+div.holder#holder1 {
+  bottom: -.8em;
+  position: relative;
+  font-size: 75%;
 }
 
-div#equation-2 {
-  float: right;
+div.holder#holder5 {
+  top: -.8em;
+  position: relative;
+  font-size: 75%;
+  min-height: 55px !important;
+  min-width: 50px !important;
 }
 
 
  .box {
-  height: 90px;
-  width: 90px;
-  background-color: black;
+  min-height: 30px;
+  min-width: 40px;
   position: relative;
-  top: 5px;
-  left: 5px;
   cursor: grab;
+  text-align: center;
+  font-weight: bold;
+}
+
+.box:hover {
+  color: grey;
 }
 
 .held {
-  border: solid 10px black;
-  background-color: black;
+
 }
 
 .holder {
-  height: 110px;
-  width: 110px;
-  margin: 10px;
-  border: solid 5px black;
+  min-height: 50px;
+  min-width: 30px;
+  margin-bottom: 10px;
+  margin-left: -.3em;
+  /* border: solid 2px black; */
   background-color: white;
   display: inline-block;
   vertical-align: top;
+  background: transparent;
 }
 
 .hovered {
-  border: dotted 5px black !important;
+  border: dotted 2px black !important;
 }
 
 .invisible {
   display: none;
 }
 
-/* #container {
-  margin: auto;
-  top: 100px;
-  width: 400px;
-  position: relative;
-} */
+div#equation-2 .holder {
+  border: solid 2px grey;
+  margin-left: .1em;
+  min-width: 65px;
+  min-height: 85px;
+  padding: 4px;
+  border-radius: 2px;
+  background-color: #ccc;
+}
+
+div#equations {
+  text-align: center;
+  font-size: 3em;
+}
+
+h4 {
+  margin-bottom: 2.5em;
+}
+
+#equation-1, #equation-2 {
+  display: inline-block;
+  border: 1px solid black;
+  height: 172px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+
+#equation-2 {
+  float: right;
+}
+
+#incorrect-info {
+  color: #d83a3a;
+  text-align: right;
+  display: none;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#correct-info {
+  display: none;
+  font-size: 18px;
+}
+
+#correct-info p {
+  margin: 0 .4em 0 .4em;
+}

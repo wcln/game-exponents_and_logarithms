@@ -1,7 +1,6 @@
 class App {
 
   static init() {
-
     const boxes = document.getElementsByClassName('box');
 
     for (const box of boxes) {
@@ -21,10 +20,46 @@ class App {
     }
   }
 
+  static check() {
+    let b = $("#holder4 > .box").html();
+    let y = $("#holder5 > .box").html();
+    let x = $("#holder6 > .box").html();
+
+    console.log(b);
+    console.log(y);
+    console.log(x);
+
+    if (Math.pow(b, y) == x) {
+      App.correct();
+    } else {
+      App.incorrect();
+    }
+  }
+
+  // Reload the page.
+  static reset() {
+    location.reload();
+  }
+
+  static correct() {
+    $("#equation-2").css("border", "2px solid green")
+    $("#holder4, #holder5, #holder6").css("background-color", "#39d861");
+    $("#holder4, #holder5, #holder6").css("color", "white");
+    $("#equation").css("display", "none");
+    $("#correct-info").css("display", "inline-block");
+    $("#incorrect-info").css("display", "none");
+    $("#check-button").prop("disabled", "true");
+  }
+
+  static incorrect() {
+    $("#equation-2").css("border", "2px solid #d83a3a")
+    $("#incorrect-info").css("display", "inline-block");
+  }
+
   static dragstart(e) {
     this.className += " held";
     e.dataTransfer.setData('text', e.target.id);
-    setTimeout(()=>this.className="invisible", 0);
+    // setTimeout(()=>this.className="invisible", 0);
   }
 
   static dragend() {
@@ -74,6 +109,27 @@ class App {
     }
 
     $('.holder').removeClass("hovered");
+
+    // Check if all required holders are full.
+    setTimeout(function() {
+      let allFull = true;
+      $("#holder4, #holder5, #holder6").each(function() {
+        if ($( this ).find('.box').length == 0) {
+          allFull = false;
+        }
+      });
+
+      // If all holders are full.
+      if (allFull) {
+        // Show check button.
+        $('#check-button').prop('disabled', false);
+        $("#check-button").prop('title', "Click to check your answer!");
+      } else {
+        // Hide check button.
+        $('#check-button').prop('disabled', true);
+        $("#check-button").prop('title', "Fill all boxes in the new equation before clicking 'Check'.");
+      }
+    }, 200);
   }
 
   static swapElements(obj1, obj2) {

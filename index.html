@@ -15,45 +15,61 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<h3>Instructions: </h3>
+				<h2>Exponents and Logarithms</h2>
 				<p>Drag each number from the equation on the left to the appropriate position on the right.</p>
 				<img src="images/logo.png"/>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-12" id="equations">
+		<div class="row" id="equations">
+			<div class="col-xs-6">
 				<div id="equation-1">
-					Log
-
+					<div id="equation">
+						<h4>Original Equation</h4>
+						Log
 						<div id="holder1" class="holder">
- 				     <div id="box1" class="box" draggable="true">
-							 1
- 						 </div>
- 				   </div>
-
-				 <div id="holder2" class="holder">
-					 <div id="box2" class="box" draggable="true">
-						 2
+					     <div id="box1" class="box" draggable="true">
+							 	10
+							 </div>
+				   </div>
+					 <div id="holder2" class="holder">
+						 <div id="box2" class="box" draggable="true">
+							 1000
+						 </div>
 					 </div>
+					 =
+					 <div id="holder3" class="holder">
+						 <div id="box3" class="box" draggable="true">
+							 3
+						 </div>
+					 </div>
+				 </div>
+				 <div id="correct-info">
+					 <h4>Correct!</h4>
+					 <p>The equation <i>Log<sub>10</sub>1000 = 3</i> is equivalent to <i>10<sup>3</sup> = 1000</i>.</p>
+				 </div>
+			 </div>
+		 </div>
+			<div class="col-xs-6">
+				<div id="equation-2">
+					<h4>New Equation</h4>
+					<div id="holder4" class="holder">
+
+			   </div>
+				 <div id="holder5" class="holder">
+
 				 </div>
 				 =
-				 <div id="holder3" class="holder">
-					 <div id="box3" class="box" draggable="true">
-						 3
-					 </div>
-				 </div>
-				 </div>
-				<div id="equation-2">
-					<div id="b-dropzone" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+				 <div id="holder6" class="holder">
 
-					</div>
-				</div>
+				 </div>
+			 </div>
 			</div>
 		</div>
     <div class="row">
       <div class="col-xs-12" id="footer-bar">
-        <button title="Sort all items before clicking 'Check'." disabled onclick="check()" id="check-button">Check</button>
-        <button title="Reset all items back to the middle." onclick="reset()" id="reset-button">Reset</button>
+				<p id="incorrect-info">Incorrect! Keep trying!</p>
+        <button title="Fill all boxes in the new equation before clicking 'Check'." disabled onclick="App.check()" id="check-button">Check</button>
+        <button title="Reset all numbers back to the original equation." onclick="App.reset()" id="reset-button">Reset</button>
       </div>
     </div>
 	</div>
