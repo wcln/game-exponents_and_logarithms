@@ -14,6 +14,8 @@ var currentExample = "Example-1";
 function init(example) {
   currentExample = example;
 
+  updateCheckButton();
+
   // Remove all event listeners.
   $('.box').each(function() {
     this.removeEventListener("dragstart", dragstart);
@@ -50,9 +52,9 @@ function init(example) {
  * Checks if the answer is correct or incorrect.
  */
 function check() {
-  let box4 = $("#"+currentExample+" #holder4 > .box").html();
-  let box5 = $("#"+currentExample+" #holder5 > .box").html();
-  let box6 = $("#"+currentExample+" #holder6 > .box").html();
+  let box4 = $("#"+currentExample+" #holder4 > .box").html().trim();
+  let box5 = $("#"+currentExample+" #holder5 > .box").html().trim();
+  let box6 = $("#"+currentExample+" #holder6 > .box").html().trim();
 
   if (currentExample.includes("1")) {
     if (Math.pow(box4, box5) == box6) {
@@ -61,19 +63,35 @@ function check() {
       incorrect();
     }
   } else if (currentExample.includes("2")) {
-
+    if (box4 == 'x' && box5 == 'y' && box6 == 'z') {
+      correct();
+    } else {
+      incorrect();
+    }
   } else if (currentExample.includes("3")) {
-
+    if (box4 == 'b' && box5 == 'a' && box6 == 'c') {
+      correct();
+    } else {
+      incorrect();
+    }
   } else {
-
+    if (Math.pow(box4, box5) == box6) {
+      correct();
+    } else {
+      incorrect();
+    }
   }
 }
 
 /*
- * Reloads the page.
+ * Reloads a specifc div.
  */
 function reset() {
-  location.reload();
+  $.get(location.href).then(function(page) {
+    $("#"+currentExample).html($(page).find("#"+currentExample).html());
+    document.getElementById('Button-' + currentExample).click();
+    init(currentExample);
+  });
 }
 
 /*
@@ -142,7 +160,7 @@ function boxdragenter(e) {
  */
 function dragleave(e) {
   if ($("#"+currentExample+' #' + e.target.id + " .box").length == 0) {
-    this.className = "holder";
+    this.classList.remove("hovered");
   }
 }
 
@@ -150,7 +168,7 @@ function dragleave(e) {
  * Box leaves box (in a holder).
  */
 function boxdragleave() {
-  this.parentNode.className = "holder";
+  this.parentNode.classList.remove("hovered");
 }
 
 /*
@@ -178,25 +196,35 @@ function drop(e) {
   $('.holder').removeClass("hovered");
 
   // Check if all required holders are full.
-  setTimeout(function() {
-    let allFull = true;
-    $("#"+currentExample+" #holder4, #"+currentExample+" #holder5, #"+currentExample+" #holder6").each(function() {
-      if ($( this ).find('.box').length == 0) {
-        allFull = false;
-      }
-    });
+  setTimeout(updateCheckButton, 200); // Timeout required as otherwise child hasn't been added... Should use Promise.
+}
 
-    // If all holders are full.
-    if (allFull) {
-      // Show check button.
-      $('#check-button').prop('disabled', false);
-      $("#check-button").prop('title', "Click to check your answer!");
-    } else {
-      // Hide check button.
-      $('#check-button').prop('disabled', true);
-      $("#check-button").prop('title', "Fill all boxes in the new equation before clicking 'Check'.");
+function updateCheckButton() {
+
+
+
+  let allFull = true;
+  $("#"+currentExample+" #holder4, #"+currentExample+" #holder5, #"+currentExample+" #holder6").each(function() {
+    if ($( this ).find('.box').length == 0) {
+      allFull = false;
     }
-  }, 200); // Timeout required as otherwise child hasn't been added... Should use Promise.
+  });
+
+  // Already got correct answer.
+  if ($("#"+currentExample+" #correct-info").css("display") == 'inline-block') {
+    allFull = false;
+  }
+
+  // If all holders are full.
+  if (allFull) {
+    // Show check button.
+    $('#check-button').prop('disabled', false);
+    $("#check-button").prop('title', "Click to check your answer!");
+  } else {
+    // Hide check button.
+    $('#check-button').prop('disabled', true);
+    $("#check-button").prop('title', "Fill all boxes in the new equation before clicking 'Check'.");
+  }
 }
 
 /*
@@ -225,6 +253,12 @@ function swapElements(obj1, obj2) {
   }
 }
 
+/*
+ * Returns the logarithm of y with base x
+ */
+function getBaseLog(x, y) {
+  return Math.log(y) / Math.log(x);
+}
 
 
 function openExample(evt, example) {
@@ -252,6 +286,6 @@ function openExample(evt, example) {
 }
 
 window.onload = function() {
-  document.getElementById('defaultOpen').click();
+  document.getElementById('Button-' + currentExample).click();
   init(currentExample);
 }

@@ -97,18 +97,32 @@ div.container {
   min-width: 660px;
 }
 
-div.holder#holder1 {
+.holder.sub {
   bottom: -.8em;
   position: relative;
   font-size: 75%;
 }
 
-div.holder#holder5 {
-  top: -.8em;
+#equation-2 .holder.sub {
+  min-height: 45px !important;
+  min-width: 30px !important;
+  bottom: -1em;
+  top: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.holder.sup {
+  top: -.6em !important;
   position: relative;
   font-size: 75%;
-  min-height: 55px !important;
-  min-width: 50px !important;
+  min-height: 45px !important;
+  min-width: 30px !important;
+  margin-left: -.8em;
+}
+
+#equation-2 .holder.sup {
+  top: -.9em !important;
 }
 
 
@@ -157,6 +171,8 @@ div#equation-2 .holder {
   padding: 4px;
   border-radius: 2px;
   background-color: #ccc;
+  position: relative;
+  top: -.3em;
 }
 
 div#equations {
