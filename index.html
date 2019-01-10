@@ -6,7 +6,6 @@
 	<link rel="stylesheet" href="https://bclearningnetwork.com/lib/bootstrap/bootstrap.min.css">
 	<script src="https://bclearningnetwork.com/lib/jquery/jquery-3.2.1.min.js"></script>
 	<script src="https://bclearningnetwork.com/lib/bootstrap/bootstrap.min.js"></script>
-	<script src="lib/interact.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/style.css"/>
 	<link rel="shortcut icon" href="images/favicon.ico"/>
 	<script type="text/javascript" src="app.js"></script>
@@ -20,56 +19,200 @@
 				<img src="images/logo.png"/>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-xs-12 tab">
+				<button id="defaultOpen" class="tablinks" onclick="openExample(event, 'Example-1')">Example 1</button>
+				<button class="tablinks" onclick="openExample(event, 'Example-2')">Example 2</button>
+				<button class="tablinks" onclick="openExample(event, 'Example-3')">Example 3</button>
+				<button class="tablinks" onclick="openExample(event, 'Example-4')">Example 4</button>
+			</div>
+		</div>
 		<div class="row" id="equations">
-			<div class="col-xs-6">
-				<div id="equation-1">
-					<div id="equation">
-						<h4>Original Equation</h4>
-						Log
-						<div id="holder1" class="holder">
-					     <div id="box1" class="box" draggable="true">
-							 	10
+			<div id="Example-1" class="tabcontent">
+				<div class="col-xs-6">
+					<div id="equation-1">
+						<div id="equation">
+							<h4>Original Equation</h4>
+							Log
+							<div id="holder1" class="holder">
+						     <div id="box1" class="box" draggable="true">
+								 	10
+								 </div>
+					   </div>
+						 <div id="holder2" class="holder">
+							 <div id="box2" class="box" draggable="true">
+								 1000
 							 </div>
-				   </div>
-					 <div id="holder2" class="holder">
-						 <div id="box2" class="box" draggable="true">
-							 1000
 						 </div>
+						 =
+						 <div id="holder3" class="holder">
+							 <div id="box3" class="box" draggable="true">
+								 3
+							 </div>
+						 </div>
+					 </div>
+					 <div id="correct-info">
+						 <h4>Correct!</h4>
+						 <p>The equation <i>Log<sub>10</sub>1000 = 3</i> is equivalent to <i>10<sup>3</sup> = 1000</i>.</p>
+					 </div>
+				 </div>
+			 </div>
+				<div class="col-xs-6">
+					<div id="equation-2">
+						<h4>New Equation</h4>
+						<div id="holder4" class="holder">
+
+				   </div>
+					 <div id="holder5" class="holder">
+
 					 </div>
 					 =
-					 <div id="holder3" class="holder">
-						 <div id="box3" class="box" draggable="true">
-							 3
-						 </div>
+					 <div id="holder6" class="holder">
+
 					 </div>
 				 </div>
-				 <div id="correct-info">
-					 <h4>Correct!</h4>
-					 <p>The equation <i>Log<sub>10</sub>1000 = 3</i> is equivalent to <i>10<sup>3</sup> = 1000</i>.</p>
+				</div>
+			</div>
+			<div id="Example-2" class="tabcontent">
+				<div class="col-xs-6">
+					<div id="equation-1">
+						<div id="equation">
+							<h4>Original Equation</h4>
+							<div id="holder1" class="holder">
+						     <div id="box1" class="box" draggable="true">
+								 	y
+								 </div>
+					   </div>
+						 =
+						 <div id="holder2" class="holder">
+							 <div id="box2" class="box" draggable="true">
+								 x
+							 </div>
+						 </div>
+						 <div id="holder3" class="holder">
+							 <div id="box3" class="box" draggable="true">
+								 z
+							 </div>
+						 </div>
+					 </div>
+					 <div id="correct-info">
+						 <h4>Correct!</h4>
+						 <p>The equation <i>y = x<sup>z</sup></i> is equivalent to <i>Log<sub>x</sub>y = z</i>.</p>
+					 </div>
 				 </div>
 			 </div>
-		 </div>
-			<div class="col-xs-6">
-				<div id="equation-2">
-					<h4>New Equation</h4>
-					<div id="holder4" class="holder">
+				<div class="col-xs-6">
+					<div id="equation-2">
+						<h4>New Equation</h4>
+						Log
+						<div id="holder4" class="holder">
 
-			   </div>
-				 <div id="holder5" class="holder">
+				   </div>
+					 <div id="holder5" class="holder">
 
+					 </div>
+					 =
+					 <div id="holder6" class="holder">
+
+					 </div>
 				 </div>
-				 =
-				 <div id="holder6" class="holder">
-
+				</div>
+			</div>
+			<div id="Example-3" class="tabcontent">
+				<div class="col-xs-6">
+					<div id="equation-1">
+						<div id="equation">
+							<h4>Original Equation</h4>
+							<div id="holder1" class="holder">
+						     <div id="box1" class="box" draggable="true">
+								 	a
+								 </div>
+					   </div>
+						 <div id="holder2" class="holder">
+							 <div id="box2" class="box" draggable="true">
+								 b
+							 </div>
+						 </div>
+						 =
+						 <div id="holder3" class="holder">
+							 <div id="box3" class="box" draggable="true">
+								 c
+							 </div>
+						 </div>
+					 </div>
+					 <div id="correct-info">
+						 <h4>Correct!</h4>
+						 <p>The equation <i>a<sup>b</sup> = c</i> is equivalent to <i>b = Log<sub>a</sub>c</i>.</p>
+					 </div>
 				 </div>
 			 </div>
+				<div class="col-xs-6">
+					<div id="equation-2">
+						<h4>New Equation</h4>
+						<div id="holder4" class="holder">
+
+				   </div>
+					 =
+					 <div id="holder5" class="holder">
+
+					 </div>
+					 <div id="holder6" class="holder">
+
+					 </div>
+				 </div>
+				</div>
+			</div>
+			<div id="Example-4" class="tabcontent">
+				<div class="col-xs-6">
+					<div id="equation-1">
+						<div id="equation">
+							<h4>Original Equation</h4>
+							Log
+							<div id="holder1" class="holder">
+						     <div id="box1" class="box" draggable="true">
+								 	3
+								 </div>
+					   </div>
+						 <div id="holder2" class="holder">
+							 <div id="box2" class="box" draggable="true">
+								 81
+							 </div>
+						 </div>
+						 =
+						 <div id="holder3" class="holder">
+							 <div id="box3" class="box" draggable="true">
+								 4
+							 </div>
+						 </div>
+					 </div>
+					 <div id="correct-info">
+						 <h4>Correct!</h4>
+						 <p>The equation <i>Log<sub>3</sub>81 = 4</i> is equivalent to <i>3<sup>4</sup> = 81</i>.</p>
+					 </div>
+				 </div>
+			 </div>
+				<div class="col-xs-6">
+					<div id="equation-2">
+						<h4>New Equation</h4>
+						<div id="holder4" class="holder">
+
+				   </div>
+					 <div id="holder5" class="holder">
+
+					 </div>
+					 =
+					 <div id="holder6" class="holder">
+
+					 </div>
+				 </div>
+				</div>
 			</div>
 		</div>
     <div class="row">
       <div class="col-xs-12" id="footer-bar">
 				<p id="incorrect-info">Incorrect! Keep trying!</p>
-        <button title="Fill all boxes in the new equation before clicking 'Check'." disabled onclick="App.check()" id="check-button">Check</button>
-        <button title="Reset all numbers back to the original equation." onclick="App.reset()" id="reset-button">Reset</button>
+        <button title="Fill all boxes in the new equation before clicking 'Check'." disabled onclick="check()" id="check-button">Check</button>
+        <button title="Reset all examples." onclick="reset()" id="reset-button">Reset</button>
       </div>
     </div>
 	</div>
