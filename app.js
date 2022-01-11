@@ -2,7 +2,7 @@
  * Exponents and Logarithms
  * Western Canadian Learning Network (wcln.ca).
  * January 2019
- * @author Colin Bernard
+ * @author Colin Perepelken
  */
 
 
